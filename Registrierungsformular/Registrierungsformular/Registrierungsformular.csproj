@@ -93,7 +93,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Schmidmair_LoginExample\Schlager_LoginExample\DataBaseWrapper\DataBaseWrapper.csproj">
+    <ProjectReference Include="..\DataBaseWrapper\DataBaseWrapper.csproj">
       <Project>{40804a83-638e-44d8-930f-1ea9b686f5f9}</Project>
       <Name>DataBaseWrapper</Name>
     </ProjectReference>

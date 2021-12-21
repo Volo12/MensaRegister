@@ -10,7 +10,7 @@ namespace Registrierungsformular
         string email;
         string firstname;
         string lastname;
-        string klasse;
+        string _class;
         string student_id;
 
         public Student(string email)
@@ -31,9 +31,9 @@ namespace Registrierungsformular
             get { return lastname; }
 
         }
-        public string Klasse
+        public string Class
         {
-            get { return klasse; }
+            get { return _class; }
         }
         public string Student_id
         {
@@ -52,7 +52,7 @@ namespace Registrierungsformular
             DataTable dt = db.RunQuery($"SELECT* from Students Where email = '{email}';");
             this.firstname = dt.Rows[0][1].ToString();
             this.lastname = dt.Rows[0][2].ToString();
-            this.klasse = dt.Rows[0][3].ToString();
+            this._class = dt.Rows[0][3].ToString();
             this.student_id = dt.Rows[0][4].ToString();
 
 

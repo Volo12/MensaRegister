@@ -20,11 +20,27 @@ namespace Registrierungsformular
 
             Student s = new Student(studentEmail);
 
-                lblName.Text = s.Firstname + " " + s.Lastname;
-                lblClass.Text = s.Klasse;
-                lblId.Text = s.Student_id;
-                lblEmail.Text = s.Email;
-            
+            txtStudentName.Text = s.Firstname + " " + s.Lastname;
+            txtStudentClass.Text = s.Class;
+            txtStudentID.Text = s.Student_id;
+            lblEmail.Text = s.Email;
+            CheckIfBasicInfosAreEmpty();
+        }
+
+        private void CheckIfBasicInfosAreEmpty()
+        {
+            if (txtStudentName.Text.Length == 0)
+            {
+                txtStudentName.ReadOnly = false;
+            }
+            if (txtStudentID.Text.Length == 0)
+            {
+                txtStudentID.ReadOnly = false;
+            }
+            if (txtStudentClass.Text.Length == 0)
+            {
+                txtStudentClass.ReadOnly = false;
+            }
         }
     }
 

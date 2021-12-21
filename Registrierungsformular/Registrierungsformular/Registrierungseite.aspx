@@ -67,15 +67,14 @@
                     Name des Schülers:
                 </td>
                 <td class="auto-style12" style="border: thin solid #CCCCCC; ">
-                    <asp:Label ID="lblName" runat="server" Text="Label" Height="30px"></asp:Label>
-                </td>
+                    <asp:TextBox ID="txtStudentName" runat="server" BackColor="White" BorderStyle="None" Height="30px" ReadOnly="True" Width="180px"></asp:TextBox></td>
             </tr>
             <tr>
                 <td class="auto-style11" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
                     Klasse:
                 </td>
                 <td class="auto-style12" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
-                    <asp:Label ID="lblClass" runat="server" Text="Label" Height="30px"></asp:Label>
+                    <asp:TextBox ID="txtStudentClass" runat="server" BackColor="#F9ECD7" BorderStyle="None" Height="30px" ReadOnly="True" Width="180px"></asp:TextBox>
                 </td>
             </tr>
              <tr>
@@ -83,7 +82,7 @@
                     Schülerausweisnummer:
                 </td>
                 <td class="auto-style12" style="border: thin solid #CCCCCC; ">
-                    <asp:Label ID="lblId" runat="server" Text="Label" Height="30px"></asp:Label>
+                    <asp:TextBox ID="txtStudentID" runat="server" BackColor="White" BorderStyle="None" Height="30px" ReadOnly="True" Width="180px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -99,7 +98,7 @@
                     Vorname Kontoinhaber:
                 </td>
                 <td class="auto-style12" style="border: thin solid #CCCCCC; ">
-                    <asp:TextBox ID="TextBox1" placeholder ="Vorname" runat="server" BackColor="White" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
+                    <asp:TextBox ID="txtDepFirstName" placeholder ="Vorname" runat="server" BackColor="White" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -107,7 +106,7 @@
                     Nachname Kontoinhaber:
                 </td>
                 <td class="auto-style4" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
-                    <asp:TextBox ID="TextBox2" placeholder ="Nachname" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
+                    <asp:TextBox ID="txtDepLastname" placeholder ="Nachname" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -120,7 +119,7 @@
                         PLZ:
                 </td>
                 <td class="auto-style4" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
-                        <asp:TextBox ID="TextBox4" placeholder ="Postleitzahl" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
+                        <asp:TextBox ID="txtZipCode" placeholder ="Postleitzahl" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -128,7 +127,7 @@
                     Ort:
                 </td>
                 <td class="auto-style4" style="border: thin solid #CCCCCC; ">
-                    <asp:TextBox ID="TextBox5" placeholder ="Ort" runat="server" BackColor="White" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
+                    <asp:TextBox ID="txtCity" placeholder ="Ort" runat="server" BackColor="White" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -136,7 +135,7 @@
                     Straße:
                 </td>
                 <td class="auto-style4" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
-                    <asp:TextBox ID="TextBox6" placeholder ="Straße" runat="server" BackColor="#F9ECD7" BorderStyle="None" Height="30px"></asp:TextBox>
+                    <asp:TextBox ID="txtStreet" placeholder ="Straße" runat="server" BackColor="#F9ECD7" BorderStyle="None" Height="30px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -144,7 +143,7 @@
                     Hausnummer:
                 </td>
                 <td class="auto-style8" style="border: thin solid #CCCCCC">
-                    <asp:TextBox ID="TextBox3" placeholder ="Hausnummer" runat="server" BackColor="White" BorderStyle="None" Height="30px" Width="180px"></asp:TextBox>
+                    <asp:TextBox ID="txtHouseNumber" placeholder ="Hausnummer" runat="server" BackColor="White" BorderStyle="None" Height="30px" Width="180px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -157,7 +156,7 @@
                     IBAN:
                 </td>
                 <td class="auto-style7" style="border: thin solid #CCCCCC; ">
-                    <asp:TextBox ID="TextBox7" placeholder ="IBAN" runat="server" Height="30px" BackColor="White" BorderStyle="None" Width="180px"></asp:TextBox>
+                    <asp:TextBox ID="txtIban" placeholder ="IBAN" runat="server" Height="30px" BackColor="White" BorderStyle="None" Width="180px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -165,7 +164,7 @@
                     BIC:
                 </td>
                 <td class="auto-style10" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
-                    <asp:TextBox ID="TextBox8" placeholder ="BIC" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
+                    <asp:TextBox ID="txtBic" placeholder ="BIC" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
                 </td>
             </tr>
         </table>

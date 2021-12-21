@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registrierungsformular", "Registrierungsformular\Registrierungsformular.csproj", "{C69AAD05-9F8D-4947-B580-09CCD686352E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseWrapper", "..\Schmidmair_LoginExample\Schlager_LoginExample\DataBaseWrapper\DataBaseWrapper.csproj", "{40804A83-638E-44D8-930F-1EA9B686F5F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseWrapper", "DataBaseWrapper\DataBaseWrapper.csproj", "{40804A83-638E-44D8-930F-1EA9B686F5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
