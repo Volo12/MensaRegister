@@ -10,6 +10,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataBaseWrapper;
 using QRCoder;
+using Word = Microsoft.Office.Interop.Word;
+using System.Reflection;
 
 namespace Registrierungsformular
 {
@@ -58,6 +60,36 @@ namespace Registrierungsformular
             qrCodeImage.Save(url, System.Drawing.Imaging.ImageFormat.Png);
 
             return qrCodeImage;
+        }
+
+        protected void btnPrintAndSave_Click(object sender, EventArgs e)
+        {
+            object oMissing = System.Reflection.Missing.Value;
+            object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
+
+            //Start Word and create a new document.
+            Word._Application oWord;
+            Word._Document oDoc;
+            oWord = new Word.Application();
+            oWord.Visible = true;
+            object oTemplate = "Z:\\SWP1\\ProjektMensSCRUM\\MensaRegister\\Registrierungsformular\\Mensaanmeldeformular_V2.docm";
+            oDoc = oWord.Documents.Add(ref oTemplate, ref oMissing,
+            ref oMissing, ref oMissing);
+
+            object bmStudentName = "studentName";
+            oDoc.Bookmarks.get_Item(ref bmStudentName).Range.Text = txtStudentName.Text;
+            object bmClass = "class";
+            oDoc.Bookmarks.get_Item(ref bmClass).Range.Text = txtStudentClass.Text;
+            object bmEmail = "email";
+            oDoc.Bookmarks.get_Item(ref bmEmail).Range.Text = lblEmail.Text;
+            object bmStudentID = "studentID";
+            oDoc.Bookmarks.get_Item(ref bmStudentID).Range.Text = txtStudentID.Text;
+
+            object bmQRCode = "qrCode";
+            
+            object position=oDoc.Bookmarks.get_Item(ref bmQRCode).Range.Text;
+
+            oDoc.InlineShapes.AddPicture("Z:\\myfile.png", ref oMissing, ref position);
         }
     }
 

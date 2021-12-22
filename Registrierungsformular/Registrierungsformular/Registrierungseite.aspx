@@ -170,7 +170,7 @@
         </table>
         <div>
             <br />
-            <asp:Button ID="btnPrintAndSave" runat="server" Text="Formular Drucken" />
+            <asp:Button ID="btnPrintAndSave" runat="server" Text="Formular Drucken" OnClick="btnPrintAndSave_Click" />
         </div>
     </form>
 </body>
