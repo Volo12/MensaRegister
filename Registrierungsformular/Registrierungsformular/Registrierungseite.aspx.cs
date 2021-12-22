@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.DirectoryServices;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -53,7 +54,8 @@ namespace Registrierungsformular
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(email, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
-            qrCodeImage.Save("myFile.png", ImageFormat );
+            string url =  "Z:\\myfile.png";
+            qrCodeImage.Save(url, System.Drawing.Imaging.ImageFormat.Png);
 
             return qrCodeImage;
         }
