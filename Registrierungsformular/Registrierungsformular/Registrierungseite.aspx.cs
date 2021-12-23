@@ -12,6 +12,7 @@ using DataBaseWrapper;
 using QRCoder;
 using Word = Microsoft.Office.Interop.Word;
 using System.Reflection;
+using Microsoft.Office.Interop.Word;
 
 namespace Registrierungsformular
 {
@@ -75,7 +76,15 @@ namespace Registrierungsformular
             object oTemplate = "Z:\\SWP1\\ProjektMensSCRUM\\MensaRegister\\Registrierungsformular\\Mensaanmeldeformular_V2.docm";
             oDoc = oWord.Documents.Add(ref oTemplate, ref oMissing,
             ref oMissing, ref oMissing);
+            InsertDataInDocument(oDoc);
 
+            object bmQRCode = "qrCode";
+            object position = oDoc.Bookmarks.get_Item(ref bmQRCode).Range;
+            oDoc.InlineShapes.AddPicture(@"Z:\\myfile.png", ref oMissing, true, ref position);
+        }
+
+        private void InsertDataInDocument(_Document oDoc)
+        {
             object bmStudentName = "studentName";
             oDoc.Bookmarks.get_Item(ref bmStudentName).Range.Text = txtStudentName.Text;
             object bmClass = "class";
@@ -84,12 +93,22 @@ namespace Registrierungsformular
             oDoc.Bookmarks.get_Item(ref bmEmail).Range.Text = lblEmail.Text;
             object bmStudentID = "studentID";
             oDoc.Bookmarks.get_Item(ref bmStudentID).Range.Text = txtStudentID.Text;
-
-            object bmQRCode = "qrCode";
-            
-            object position=oDoc.Bookmarks.get_Item(ref bmQRCode).Range.Text;
-
-            oDoc.InlineShapes.AddPicture("Z:\\myfile.png", ref oMissing, ref position);
+            object bmAoFirstname = "aoFirstname";
+            oDoc.Bookmarks.get_Item(ref bmAoFirstname).Range.Text = txtDepFirstName.Text;
+            object bmAoLastname = "aoLastname";
+            oDoc.Bookmarks.get_Item(ref bmAoLastname).Range.Text = txtDepLastname.Text;
+            object bmZipcode = "zipcode";
+            oDoc.Bookmarks.get_Item(ref bmZipcode).Range.Text = txtZipCode.Text;
+            object bmCity = "city";
+            oDoc.Bookmarks.get_Item(ref bmCity).Range.Text = txtCity.Text;
+            object bmStreet = "street";
+            oDoc.Bookmarks.get_Item(ref bmStreet).Range.Text = txtStreet.Text;
+            object bmHouseNumber = "houseNumber";
+            oDoc.Bookmarks.get_Item(ref bmHouseNumber).Range.Text = txtHouseNumber.Text;
+            object bmIban = "iban";
+            oDoc.Bookmarks.get_Item(ref bmIban).Range.Text = txtIban.Text;
+            object bmBic = "bic";
+            oDoc.Bookmarks.get_Item(ref bmBic).Range.Text = txtBic.Text;
         }
     }
 
