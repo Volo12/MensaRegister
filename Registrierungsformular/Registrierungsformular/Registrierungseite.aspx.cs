@@ -73,7 +73,7 @@ namespace Registrierungsformular
             Word._Document oDoc;
             oWord = new Word.Application();
             oWord.Visible = true;
-            object oTemplate = "Z:\\SWP1\\ProjektMensSCRUM\\MensaRegister\\Registrierungsformular\\Mensaanmeldeformular_V2.docm";
+            object oTemplate = "Z:\\5.Klasse\\SWP\\Mensaprojekt\\MensaRegister\\Registrierungsformular\\Mensaanmeldeformular_V2.docm";
             oDoc = oWord.Documents.Add(ref oTemplate, ref oMissing,
             ref oMissing, ref oMissing);
             InsertDataInDocument(oDoc);
