@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.DirectoryServices;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using DataBaseWrapper;
 using QRCoder;
 using Word = Microsoft.Office.Interop.Word;
-using System.Reflection;
 using Microsoft.Office.Interop.Word;
+using System.Windows;
+using System.Windows.Media.Imaging;
+using System.Windows.Interop;
+using System.Threading;
 
 namespace Registrierungsformular
 {
@@ -20,22 +14,22 @@ namespace Registrierungsformular
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             string student = Environment.UserName;
-            //string studeng = HttpContext.Current.User.Identity.Name;
-            string studentEmail = student + "@htlvb.at";
+            string studentEmail = student + "@htlvb.at";                    // Email aus UserName erstellen
 
-
-            Student s = new Student(studentEmail);
+            Student s = new Student(studentEmail);                          // Daten des Schülers aus DB auslesen
 
             txtStudentName.Text = s.Firstname + " " + s.Lastname;
             txtStudentClass.Text = s.Class;
             txtStudentID.Text = s.Student_id;
             lblEmail.Text = s.Email;
+
             CheckIfBasicInfosAreEmpty();
-            CreateQrCode(studentEmail);
         }
 
+        /// <summary>
+        /// Check if StudentName, StudentId, StudentClass is in DB. If not, the student can insert it himself.
+        /// </summary>
         private void CheckIfBasicInfosAreEmpty()
         {
             if (txtStudentName.Text.Length == 0)
@@ -57,32 +51,56 @@ namespace Registrierungsformular
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(email, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
-            string url =  "Z:\\myfile.png";
-            qrCodeImage.Save(url, System.Drawing.Imaging.ImageFormat.Png);
 
             return qrCodeImage;
         }
 
         protected void btnPrintAndSave_Click(object sender, EventArgs e)
         {
-            object oMissing = System.Reflection.Missing.Value;
-            object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
+            if (Page.IsValid)
+            {
+                object oMissing = System.Reflection.Missing.Value;
+                object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
 
-            //Start Word and create a new document.
-            Word._Application oWord;
-            Word._Document oDoc;
-            oWord = new Word.Application();
-            oWord.Visible = true;
-            object oTemplate = "Z:\\SWP1\\ProjektMensSCRUM\\MensaRegister\\Registrierungsformular\\Mensaanmeldeformular_V2.docm";
-            oDoc = oWord.Documents.Add(ref oTemplate, ref oMissing,
-            ref oMissing, ref oMissing);
-            InsertDataInDocument(oDoc);
+                //Start Word and create a new document.
+                Word._Application oWord;
+                Word._Document oDoc;
+                oWord = new Word.Application();
+                oWord.Visible = true;
+                object oTemplate = "Z:\\SWP1\\ProjektMensSCRUM\\MensaRegister\\Registrierungsformular\\Mensaanmeldeformular_V2.docm";
+                oDoc = oWord.Documents.Add(ref oTemplate, ref oMissing, ref oMissing, ref oMissing);
+                InsertDataInDocument(oDoc);
 
-            object bmQRCode = "qrCode";
-            object position = oDoc.Bookmarks.get_Item(ref bmQRCode).Range;
-            oDoc.InlineShapes.AddPicture(@"Z:\\myfile.png", ref oMissing, true, ref position);
+                Bitmap qrCode = CreateQrCode(lblEmail.Text);
+                InsertQRCodeInDoc(oDoc, qrCode);
+            }
+            else
+                lblInfo.Text = "Bitte alle Mussfelder ausfüllen!";
         }
 
+        /// <summary>
+        /// Inserts QRCode in Document without saving it in a directory. Must use a thread to use the Clipboard.SetImage Method.
+        /// </summary>
+        /// <param name="oDoc"></param>
+        /// <param name="qrCode"></param>
+        private void InsertQRCodeInDoc(_Document oDoc, Bitmap qrCode)
+        {
+            Thread t = new Thread((ThreadStart)(() =>
+            {
+                Clipboard.SetImage(GetBitmapSource(qrCode));
+            }));
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+            t.Join();
+
+            object bmQRCode = "qrCode";
+            oDoc.Bookmarks.get_Item(ref bmQRCode).Range.Paste();
+        }
+
+        /// <summary>
+        /// Inserting the data in the word document.
+        /// </summary>
+        /// <param name="oDoc"></param>
         private void InsertDataInDocument(_Document oDoc)
         {
             object bmStudentName = "studentName";
@@ -109,6 +127,18 @@ namespace Registrierungsformular
             oDoc.Bookmarks.get_Item(ref bmIban).Range.Text = txtIban.Text;
             object bmBic = "bic";
             oDoc.Bookmarks.get_Item(ref bmBic).Range.Text = txtBic.Text;
+        }
+        public BitmapSource GetBitmapSource(Bitmap bitmap)
+        {
+            BitmapSource bitmapSource = Imaging.CreateBitmapSourceFromHBitmap
+            (
+                bitmap.GetHbitmap(),
+                IntPtr.Zero,
+                Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions()
+            );
+
+            return bitmapSource;
         }
     }
 

@@ -33,6 +33,15 @@ namespace Registrierungsformular
         protected global::System.Web.UI.WebControls.TextBox txtStudentName;
 
         /// <summary>
+        /// reqFieldVal_txtStudentName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtStudentName;
+
+        /// <summary>
         /// txtStudentClass control.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace Registrierungsformular
         protected global::System.Web.UI.WebControls.TextBox txtStudentClass;
 
         /// <summary>
+        /// reqFieldVal_txtStudentClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtStudentClass;
+
+        /// <summary>
         /// txtStudentID control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace Registrierungsformular
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStudentID;
+
+        /// <summary>
+        /// reqFieldVal_txtStudentID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtStudentID;
 
         /// <summary>
         /// lblEmail control.
@@ -69,6 +96,15 @@ namespace Registrierungsformular
         protected global::System.Web.UI.WebControls.TextBox txtDepFirstName;
 
         /// <summary>
+        /// reqFieldVal_txtDepFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtDepFirstName;
+
+        /// <summary>
         /// txtDepLastname control.
         /// </summary>
         /// <remarks>
@@ -76,6 +112,15 @@ namespace Registrierungsformular
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDepLastname;
+
+        /// <summary>
+        /// reqFieldVal_txtDepLastname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtDepLastname;
 
         /// <summary>
         /// txtZipCode control.
@@ -87,6 +132,15 @@ namespace Registrierungsformular
         protected global::System.Web.UI.WebControls.TextBox txtZipCode;
 
         /// <summary>
+        /// reqFieldVal_txtZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtZipCode;
+
+        /// <summary>
         /// txtCity control.
         /// </summary>
         /// <remarks>
@@ -94,6 +148,15 @@ namespace Registrierungsformular
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCity;
+
+        /// <summary>
+        /// reqFieldVal_txtCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtCity;
 
         /// <summary>
         /// txtStreet control.
@@ -105,6 +168,15 @@ namespace Registrierungsformular
         protected global::System.Web.UI.WebControls.TextBox txtStreet;
 
         /// <summary>
+        /// reqFieldVal_txtStreet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtStreet;
+
+        /// <summary>
         /// txtHouseNumber control.
         /// </summary>
         /// <remarks>
@@ -112,6 +184,15 @@ namespace Registrierungsformular
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHouseNumber;
+
+        /// <summary>
+        /// reqFieldVal_txtHouseNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtHouseNumber;
 
         /// <summary>
         /// txtIban control.
@@ -123,6 +204,15 @@ namespace Registrierungsformular
         protected global::System.Web.UI.WebControls.TextBox txtIban;
 
         /// <summary>
+        /// reqFieldVal_txtIban control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldVal_txtIban;
+
+        /// <summary>
         /// txtBic control.
         /// </summary>
         /// <remarks>
@@ -130,6 +220,15 @@ namespace Registrierungsformular
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBic;
+
+        /// <summary>
+        /// lblInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInfo;
 
         /// <summary>
         /// btnPrintAndSave control.
