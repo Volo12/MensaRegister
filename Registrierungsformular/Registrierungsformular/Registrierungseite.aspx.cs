@@ -1,4 +1,5 @@
 ﻿using System;
+<<<<<<< Updated upstream
 using System.Drawing;
 using QRCoder;
 using Word = Microsoft.Office.Interop.Word;
@@ -7,6 +8,18 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Interop;
 using System.Threading;
+=======
+using System.Collections.Generic;
+using System.DirectoryServices;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DataBaseWrapper;
+using Word = Microsoft.Office.Interop.Word;
+using System.Reflection;
+using System.IO;
+>>>>>>> Stashed changes
 
 namespace Registrierungsformular
 {
@@ -45,6 +58,7 @@ namespace Registrierungsformular
                 txtStudentClass.ReadOnly = false;
             }
         }
+<<<<<<< Updated upstream
         public Bitmap CreateQrCode(string email)
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
@@ -103,6 +117,24 @@ namespace Registrierungsformular
         /// <param name="oDoc"></param>
         private void InsertDataInDocument(_Document oDoc)
         {
+=======
+
+        protected void btnPrintAndSave_Click(object sender, EventArgs e)
+        {
+            object oMissing = System.Reflection.Missing.Value;
+            object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
+
+            //Start Word and create a new document.
+            Word._Application oWord;
+            Word._Document oDoc;
+            oWord = new Word.Application();
+            oWord.Visible = true;
+            string path = Directory.GetCurrentDirectory();
+            object oTemplate = "@Mensaanmeldeformular.docm";
+            oDoc = oWord.Documents.Add(ref oTemplate, ref oMissing,
+            ref oMissing, ref oMissing);
+
+>>>>>>> Stashed changes
             object bmStudentName = "studentName";
             oDoc.Bookmarks.get_Item(ref bmStudentName).Range.Text = txtStudentName.Text;
             object bmClass = "class";
@@ -111,6 +143,7 @@ namespace Registrierungsformular
             oDoc.Bookmarks.get_Item(ref bmEmail).Range.Text = lblEmail.Text;
             object bmStudentID = "studentID";
             oDoc.Bookmarks.get_Item(ref bmStudentID).Range.Text = txtStudentID.Text;
+<<<<<<< Updated upstream
             object bmAoFirstname = "aoFirstname";
             oDoc.Bookmarks.get_Item(ref bmAoFirstname).Range.Text = txtDepFirstName.Text;
             object bmAoLastname = "aoLastname";
@@ -139,6 +172,8 @@ namespace Registrierungsformular
             );
 
             return bitmapSource;
+=======
+>>>>>>> Stashed changes
         }
     }
 
