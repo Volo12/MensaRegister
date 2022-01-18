@@ -67,7 +67,11 @@
                     Name des Schülers:
                 </td>
                 <td class="auto-style12" style="border: thin solid #CCCCCC; ">
-                    <asp:TextBox ID="txtStudentName" runat="server" BackColor="White" BorderStyle="None" Height="30px" ReadOnly="True" Width="180px"></asp:TextBox></td>
+                    <asp:TextBox ID="txtStudentName" runat="server" BackColor="White" BorderStyle="None" Height="30px" ReadOnly="True" Width="180px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtStudentName" runat="server" ControlToValidate="txtStudentName" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style11" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
@@ -76,6 +80,9 @@
                 <td class="auto-style12" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
                     <asp:TextBox ID="txtStudentClass" runat="server" BackColor="#F9ECD7" BorderStyle="None" Height="30px" ReadOnly="True" Width="180px"></asp:TextBox>
                 </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtStudentClass" runat="server" ControlToValidate="txtStudentClass" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
+                </td>
             </tr>
              <tr>
                 <td class="auto-style11" style="border: thin solid #CCCCCC; ">
@@ -83,6 +90,9 @@
                 </td>
                 <td class="auto-style12" style="border: thin solid #CCCCCC; ">
                     <asp:TextBox ID="txtStudentID" runat="server" BackColor="White" BorderStyle="None" Height="30px" ReadOnly="True" Width="180px"></asp:TextBox>
+                </td>
+                 <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtStudentID" runat="server" ControlToValidate="txtStudentID" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -100,6 +110,9 @@
                 <td class="auto-style12" style="border: thin solid #CCCCCC; ">
                     <asp:TextBox ID="txtDepFirstName" placeholder ="Vorname" runat="server" BackColor="White" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
                 </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtDepFirstName" runat="server" ControlToValidate="txtDepFirstName" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style1" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
@@ -107,6 +120,9 @@
                 </td>
                 <td class="auto-style4" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
                     <asp:TextBox ID="txtDepLastname" placeholder ="Nachname" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtDepLastname" runat="server" ControlToValidate="txtDepLastname" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -121,6 +137,9 @@
                 <td class="auto-style4" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
                         <asp:TextBox ID="txtZipCode" placeholder ="Postleitzahl" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
                 </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtZipCode" runat="server" ControlToValidate="txtZipCode" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style5" style="border: thin solid #CCCCCC; ">
@@ -128,6 +147,9 @@
                 </td>
                 <td class="auto-style4" style="border: thin solid #CCCCCC; ">
                     <asp:TextBox ID="txtCity" placeholder ="Ort" runat="server" BackColor="White" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtCity" runat="server" ControlToValidate="txtCity" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -137,6 +159,9 @@
                 <td class="auto-style4" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
                     <asp:TextBox ID="txtStreet" placeholder ="Straße" runat="server" BackColor="#F9ECD7" BorderStyle="None" Height="30px"></asp:TextBox>
                 </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtStreet" runat="server" ControlToValidate="txtStreet" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style1" style="border: thin solid #CCCCCC;">
@@ -144,6 +169,9 @@
                 </td>
                 <td class="auto-style8" style="border: thin solid #CCCCCC">
                     <asp:TextBox ID="txtHouseNumber" placeholder ="Hausnummer" runat="server" BackColor="White" BorderStyle="None" Height="30px" Width="180px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtHouseNumber" runat="server" ControlToValidate="txtHouseNumber" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -158,10 +186,13 @@
                 <td class="auto-style7" style="border: thin solid #CCCCCC; ">
                     <asp:TextBox ID="txtIban" placeholder ="IBAN" runat="server" Height="30px" BackColor="White" BorderStyle="None" Width="180px"></asp:TextBox>
                 </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqFieldVal_txtIban" runat="server" ControlToValidate="txtIban" Display="Dynamic" EnableClientScript="False"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style9" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
-                    BIC:
+                    BIC (optional):
                 </td>
                 <td class="auto-style10" style="border: thin solid #CCCCCC; background-color: #F9ECD7;">
                     <asp:TextBox ID="txtBic" placeholder ="BIC" runat="server" BackColor="#F9ECD7" BorderStyle="None" Width="180px" Height="30px"></asp:TextBox>
@@ -169,6 +200,8 @@
             </tr>
         </table>
         <div>
+            <asp:Label ID="lblInfo" runat="server"></asp:Label>
+            <br />
             <br />
             <asp:Button ID="btnPrintAndSave" runat="server" Text="Formular Drucken" OnClick="btnPrintAndSave_Click" />
         </div>
