@@ -7,9 +7,6 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Interop;
 using System.Threading;
-=======
-using System.Collections.Generic;
-using System.Web.UI.WebControls;
 
 namespace Registrierungsformular
 {
