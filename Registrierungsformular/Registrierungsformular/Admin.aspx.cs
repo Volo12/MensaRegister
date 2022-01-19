@@ -1,8 +1,11 @@
-﻿using System;
+﻿using DataMatrix.net;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -30,27 +33,25 @@ namespace Registrierungsformular
             string path = Path.Combine(folder, name);
             fplPDF.SaveAs(path);
             //SplitPDF("formulars.pdf");
-
-            ExtractAllImages(path);
+            lblInfo.Text = DecodeText(name);
 
         }
-        public static void ReadOneBarcodeTypeFromMultiplePdfPages()
+        private string DecodeText(string sFileName)
         {
-            PdfFile pdf = new PdfFile("test2.pdf");
-            pdf.SetDPI = 72;
-            for (int i = 0; i < pdf.FilePageCount; i++)
+            DmtxImageDecoder decoder = new DmtxImageDecoder();
+            System.Drawing.Bitmap oBitmap = new System.Drawing.Bitmap(sFileName);
+            List<string> oList = decoder.DecodeImage(oBitmap);
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            foreach (string s in oList)
             {
-                Image pageImage = pdf.ConvertToImage(i, 1000, 1200);
-                Bitmap bitmap = new Bitmap(pageImage);
-                //pageImage.Save("Page" + i + ".jpg", ImageFormat.Jpeg);
-                string[] data = PdfBarcodeReader.Recognize(bitmap, PdfBarcodeReader.Qrcode);
-                foreach (string result in data)
-                {
-                    Console.WriteLine(result);
-                }
+                sb.Append(s);
             }
-            Console.ReadKey();
+            return sb.ToString();
         }
+
+
 
         //void SplitPDF(string filename)
         //{

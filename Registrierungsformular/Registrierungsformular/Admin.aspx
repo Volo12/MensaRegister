@@ -9,7 +9,18 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            Bitte wählen Sie die gescannte Datei aus.<br />
+            <br />
         </div>
+        <p>
+            <asp:FileUpload ID="fplPDF" runat="server" />
+        </p>
+        <p>
+            <asp:Button ID="btnSavePDF" runat="server" OnClick="btnSavePDF_Click" Text="Button" />
+        </p>
+        <p>
+            <asp:Label ID="lblInfo" runat="server" Text="Label"></asp:Label>
+        </p>
     </form>
 </body>
 </html>
