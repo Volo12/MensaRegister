@@ -7,9 +7,6 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Interop;
 using System.Threading;
-=======
-using System.Collections.Generic;
-using System.Web.UI.WebControls;
 
 namespace Registrierungsformular
 {
@@ -131,6 +128,8 @@ namespace Registrierungsformular
             object bmBic = "bic";
             oDoc.Bookmarks.get_Item(ref bmBic).Range.Text = txtBic.Text;
         }
+
+
         public BitmapSource GetBitmapSource(Bitmap bitmap)
         {
             BitmapSource bitmapSource = Imaging.CreateBitmapSourceFromHBitmap
@@ -144,6 +143,4 @@ namespace Registrierungsformular
             return bitmapSource;
         }
     }
-
-
 }

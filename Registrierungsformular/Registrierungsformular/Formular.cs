@@ -42,7 +42,6 @@ namespace Registrierungsformular
         }
         public void LoadToDataBank()
         {
-            
             DataBase db = new DataBase(WebConfigurationManager.ConnectionStrings["AppDb"].ConnectionString);
 
             db.RunNoneQuery($"Insert INTO signed_up_users({Email}, {revision}, {state_id}, {ao_firstname}, {ao_lastname}, {street}, {house_number}, {zipcode}, {city}, {iban}, {bic},)" +
