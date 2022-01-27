@@ -68,13 +68,27 @@ namespace Registrierungsformular
                 Word._Application oWord;
                 Word._Document oDoc;
                 oWord = new Word.Application();
-                oWord.Visible = true;
+                oWord.Visible = false;
                 object oTemplate = "Z:\\SWP1\\ProjektMensSCRUM\\MensaRegister\\Registrierungsformular\\Mensaanmeldeformular_V2.docm";
                 oDoc = oWord.Documents.Add(ref oTemplate, ref oMissing, ref oMissing, ref oMissing);
                 InsertDataInDocument(oDoc);
 
+                // Insert QRCode
                 Bitmap qrCode = CreateQrCode(lblEmail.Text);
                 InsertQRCodeInDoc(oDoc, qrCode);
+
+                // Run Macro --> Ändern der Mandatsreferenz
+                oWord.GetType().InvokeMember("Run", System.Reflection.BindingFlags.InvokeMethod, null, oWord, new object[] { "MensaAnmeldungDrucken" });
+
+                // Fill Database
+                Formular form = new Formular(lblEmail.Text, txtDepFirstName.Text, txtDepLastname.Text,
+                    txtStreet.Text, txtHouseNumber.Text, txtZipCode.Text,
+                    txtCity.Text, txtIban.Text, txtBic.Text);
+                form.LoadToDataBank();
+                
+                // Close WordApplication without saving
+                object saveDoc = false;
+                oWord.Quit(ref saveDoc);
             }
             else
                 lblInfo.Text = "Bitte alle Mussfelder ausfüllen!";
@@ -135,6 +149,8 @@ namespace Registrierungsformular
             object bmBic = "bic";
             oDoc.Bookmarks.get_Item(ref bmBic).Range.Text = txtBic.Text;
         }
+
+
         public BitmapSource GetBitmapSource(Bitmap bitmap)
         {
             BitmapSource bitmapSource = Imaging.CreateBitmapSourceFromHBitmap
@@ -148,6 +164,4 @@ namespace Registrierungsformular
             return bitmapSource;
         }
     }
-
-
 }

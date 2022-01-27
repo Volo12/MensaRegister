@@ -4,7 +4,7 @@ using System.Data.Odbc;
 
 namespace DataBaseWrapper
 {
-    public class DataBase
+    public class DataBase: IDisposable
     {
         OdbcConnection connection;
 
@@ -116,6 +116,11 @@ namespace DataBaseWrapper
             }
             return returnObject;
 
+        }
+
+        public void Dispose()
+        {
+            Close();
         }
     }
 }
