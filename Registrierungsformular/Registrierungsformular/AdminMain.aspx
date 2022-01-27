@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Registrierungsformular.Admin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminMain.aspx.cs" Inherits="Registrierungsformular.Admin" %>
 
 <!DOCTYPE html>
 
@@ -17,6 +17,11 @@
         </p>
         <p>
             <asp:Button ID="btnSavePDF" runat="server" OnClick="btnSavePDF_Click" Text="Button" />
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="btnToDataBase" runat="server" Text="Daten überprüfen" OnClick="btnToDataBase_Click" />
         </p>
         <p>
             <asp:Label ID="lblInfo" runat="server" Text="Label"></asp:Label>

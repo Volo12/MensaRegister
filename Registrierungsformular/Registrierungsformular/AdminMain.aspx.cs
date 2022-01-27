@@ -1,6 +1,4 @@
-﻿
-using ImageMagick;
-using System;
+﻿using System;
 using System.IO;
 using System.Reflection;
 
@@ -22,11 +20,17 @@ namespace Registrierungsformular
         {
             ZXing.QrCode.QRCodeReader qrReader = new ZXing.QrCode.QRCodeReader();
 
+            
+
             //string name = "formulars.pdf";
             //string folder = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath);
             //string path = Path.Combine(folder, name);
             //fplPDF.SaveAs(path);
         }
 
+        protected void btnToDataBase_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminDataBase.aspx");
+        }
     }
 }

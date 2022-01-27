@@ -78,6 +78,12 @@ namespace Registrierungsformular
                 // Run Macro --> Ändern der Mandatsreferenz
                 oWord.GetType().InvokeMember("Run", System.Reflection.BindingFlags.InvokeMethod, null, oWord, new object[] { "MensaAnmeldungDrucken" });
 
+                // Fill Database
+                Formular form = new Formular(lblEmail.Text, txtDepFirstName.Text, txtDepLastname.Text,
+                    txtStreet.Text, txtHouseNumber.Text, txtZipCode.Text,
+                    txtCity.Text, txtIban.Text, txtBic.Text);
+                form.LoadToDataBank();
+                
                 // Close WordApplication without saving
                 object saveDoc = false;
                 oWord.Quit(ref saveDoc);

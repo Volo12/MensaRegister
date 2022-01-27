@@ -42,10 +42,23 @@ namespace Registrierungsformular
         }
         public void LoadToDataBank()
         {
-            DataBase db = new DataBase(WebConfigurationManager.ConnectionStrings["AppDb"].ConnectionString);
+            string sql = GetSqlCommand();
 
-            db.RunNoneQuery($"Insert INTO signed_up_users({Email}, {revision}, {state_id}, {ao_firstname}, {ao_lastname}, {street}, {house_number}, {zipcode}, {city}, {iban}, {bic},)" +
-                            "Values(email, revision, state_id, ao_firstname, ao_lastname, street, house_number, zipcode, city, iban, bic)");
+            DataBase db = new DataBase(WebConfigurationManager.ConnectionStrings["AppDb"].ConnectionString);
+            db.RunNoneQuery(sql);
+
+        }
+
+        private string GetSqlCommand()
+        {
+            string sql;
+            if (bic.Length > 0)
+                sql = $"Insert INTO signed_up_users(email, revision, state_id, ao_firstname, ao_lastname, street, house_number, zipcode, city, IBAN, BIC) " +
+                            $"Values('{Email}', {revision}, {state_id}, '{ao_firstname}', '{ao_lastname}', '{street}', '{house_number}', '{zipcode}', '{city}', '{iban}', '{bic}')";
+            else
+                sql = $"Insert INTO signed_up_users(email, revision, state_id, ao_firstname, ao_lastname, street, house_number, zipcode, city, IBAN) " +
+                            $"Values('{Email}', {revision}, {state_id}, '{ao_firstname}', '{ao_lastname}', '{street}', '{house_number}', '{zipcode}', '{city}', '{iban}')";
+            return sql;
         }
 
         private int GetRevision()
