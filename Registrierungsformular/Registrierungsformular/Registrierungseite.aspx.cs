@@ -57,7 +57,7 @@ namespace Registrierungsformular
 
         protected void btnPrintAndSave_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+          if (Page.IsValid)
             {
 
                 object oMissing = System.Reflection.Missing.Value;
@@ -91,11 +91,6 @@ namespace Registrierungsformular
             }
             else
                 lblInfo.Text = "Bitte alle Mussfelder ausfüllen!";
-        }
-
-        private void LoadDataToDatabase()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
