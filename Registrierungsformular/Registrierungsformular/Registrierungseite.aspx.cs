@@ -59,7 +59,6 @@ namespace Registrierungsformular
         {
             if (Page.IsValid)
             {
-                LoadDataToDatabase();
 
                 object oMissing = System.Reflection.Missing.Value;
                 object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
@@ -84,7 +83,7 @@ namespace Registrierungsformular
                 Formular form = new Formular(lblEmail.Text, txtDepFirstName.Text, txtDepLastname.Text,
                     txtStreet.Text, txtHouseNumber.Text, txtZipCode.Text,
                     txtCity.Text, txtIban.Text, txtBic.Text);
-                form.LoadToDataBank();
+                form.LoadToDataBase();
                 
                 // Close WordApplication without saving
                 object saveDoc = false;
