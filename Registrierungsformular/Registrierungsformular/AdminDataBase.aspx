@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminDataBase.aspx.cs" Inherits="Registrierungsformular.AdminDataBase" %>
+﻿%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminDataBase.aspx.cs" Inherits="Registrierungsformular.AdminDataBase" %>
+
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,17 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
         <table>
             <tr>
                 <td>Status: </td>
                 <td>
-                    <asp:DropDownList ID="ddlState" runat="server" Height="20px" Width="200px"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlState" runat="server" Height="20px" Width="200px" BackColor="Transparent"></asp:DropDownList>
                 </td>
                 <td></td>
                 <td>Klasse: </td>
                 <td>
-                    <asp:DropDownList ID="ddlClass" runat="server" Height="20px" Width="200px"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlClass" runat="server" Height="20px" Width="200px" BackColor="Transparent"></asp:DropDownList>
                 </td>
             </tr>
             <tr>
@@ -26,12 +27,12 @@
                 </td>
             </tr>
         </table>
-
-        <asp:GridView ID="grvData" runat="server" Height="124px" Width="254px" CellPadding="5" Font-Bold="False" Font-Size="Small"></asp:GridView>
-
         <br />
         <asp:Button ID="btnReturn" runat="server" Text="Zurück" OnClick="btnReturn_Click" />
 
+
+
+        <asp:GridView ID="grvData" runat="server" Height="124px" Width="254px" CellPadding="5" Font-Bold="False" Font-Size="Small"></asp:GridView>
     </form>
 </body>
 </html>
