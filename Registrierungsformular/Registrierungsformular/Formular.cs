@@ -40,7 +40,7 @@ namespace Registrierungsformular
         {
             get { return email; }
         }
-        public void LoadToDataBank()
+        public void LoadToDataBase()
         {
             
             DataBase db = new DataBase(WebConfigurationManager.ConnectionStrings["AppDb"].ConnectionString);

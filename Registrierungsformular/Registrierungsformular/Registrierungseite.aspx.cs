@@ -59,6 +59,8 @@ namespace Registrierungsformular
         {
             if (Page.IsValid)
             {
+                LoadDataToDatabase();
+
                 object oMissing = System.Reflection.Missing.Value;
                 object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
 
@@ -76,6 +78,11 @@ namespace Registrierungsformular
             }
             else
                 lblInfo.Text = "Bitte alle Mussfelder ausfüllen!";
+        }
+
+        private void LoadDataToDatabase()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
