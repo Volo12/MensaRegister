@@ -1,0 +1,28 @@
+﻿#topBar{
+    position:absolute;
+    background-color:dimgrey;
+    top:0;
+    left:100px;
+    width:100%;
+    height:80px;
+}
+
+#sideBar {
+    width: 100px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    background-color: dimgrey;
+}
+
+#content{
+    position:absolute;
+    left:100px;
+    top:80px;
+    right:0;
+    bottom:0;
+    box-sizing:border-box;
+    padding:20px;
+}

@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="DataBaseStyle.css" rel="stylesheet" type="text/css" />
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="width:100%; background-color:dimgrey">
+        <div id="topBar">
             <table>
                 <tr>
                     <td>Status: </td>
@@ -17,7 +18,7 @@
                     <td></td>
                     <td>Klasse: </td>
                     <td>
-                        <asp:DropDownList ID="ddlClass" runat="server" Height="20px" Width="200px"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlClass" runat="server" Height="20px" Width="200px" BackColor="Transparent"></asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
@@ -27,11 +28,16 @@
                 </tr>
             </table>
         </div>
+        <div id="sideBar">
+            <br />
+            <asp:Button ID="btnReturn" runat="server" Text="Daten" OnClick="btnReturn_Click" />
+        </div>
 
-        <asp:GridView ID="grvData" runat="server" Height="124px" Width="254px" CellPadding="5" Font-Bold="False" Font-Size="Small"></asp:GridView>
+        <div id="content">
+            <asp:GridView ID="grvData" runat="server" Height="124px" Width="254px" CellPadding="5" Font-Bold="False" Font-Size="Small"></asp:GridView>
+        </div>
 
-        <br />
-        <asp:Button ID="btnReturn" runat="server" Text="Zurück" OnClick="btnReturn_Click" />
+
 
     </form>
 </body>
