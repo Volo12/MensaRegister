@@ -1,6 +1,4 @@
-﻿%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminDataBase.aspx.cs" Inherits="Registrierungsformular.AdminDataBase" %>
-
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminDataBase.aspx.cs" Inherits="Registrierungsformular.AdminDataBase" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
