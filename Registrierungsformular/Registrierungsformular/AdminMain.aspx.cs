@@ -1,9 +1,4 @@
-﻿using ImageMagick;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.IO;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System;
 using System.IO;
 using System.Reflection;
 using ZXing;
@@ -118,12 +113,18 @@ namespace Registrierungsformular
             }
         }
 
-        private string DecodeImage(string folder, string name)
-        {
-            IBarcodeReader reader = new BarcodeReader();
-            var barcodeBitmap = (Bitmap)Bitmap.FromFile(folder + name + @".png");
-            string result = reader.Decode(barcodeBitmap).ToString();
-            return result;
+                destinationPathAndName=destinationPath + Guid.NewGuid()+".pdf";
+                while(File.Exists(destinationPathAndName))
+                {
+                    destinationPathAndName = destinationPath + Guid.NewGuid()+".pdf";
+                }
+                outputDocument.Save(destinationPathAndName);                
+            }
+
+            //string name = "formulars.pdf";
+            //string folder = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath);
+            //string path = Path.Combine(folder, name);
+            //fplPDF.SaveAs(path);
         }
 
         protected void btnToDataBase_Click(object sender, EventArgs e)
