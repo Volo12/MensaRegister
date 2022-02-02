@@ -30,8 +30,6 @@
         <br />
         <asp:Button ID="btnReturn" runat="server" Text="Zurück" OnClick="btnReturn_Click" />
 
-
-
         <asp:GridView ID="grvData" runat="server" Height="124px" Width="254px" CellPadding="5" Font-Bold="False" Font-Size="Small"></asp:GridView>
     </form>
 </body>

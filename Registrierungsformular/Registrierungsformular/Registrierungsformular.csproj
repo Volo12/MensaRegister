@@ -89,7 +89,6 @@
   <ItemGroup>
     <Content Include="AdminDataBase.aspx" />
     <Content Include="AdminMain.aspx" />
-    <Content Include="DataBaseStyle.css" />
     <Content Include="Registrierungseite.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
