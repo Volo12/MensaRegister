@@ -57,8 +57,9 @@ namespace Registrierungsformular
 
         protected void btnPrintAndSave_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+          if (Page.IsValid)
             {
+
                 object oMissing = System.Reflection.Missing.Value;
                 object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
 

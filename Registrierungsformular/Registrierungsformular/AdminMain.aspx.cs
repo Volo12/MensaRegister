@@ -1,8 +1,12 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
+﻿using ImageMagick;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Reflection;
+using ZXing;
 
 namespace Registrierungsformular
 {
@@ -20,35 +24,16 @@ namespace Registrierungsformular
 
         protected void btnSavePDF_Click(object sender, EventArgs e)
         {
-            // Open the file
-            PdfDocument inputDocument = PdfReader.Open(@"Z:\SWP1\ProjektMensSCRUM\originalPdf.pdf",PdfDocumentOpenMode.Import);
+            ZXing.QrCode.QRCodeReader qrReader = new ZXing.QrCode.QRCodeReader();
 
-            string destinationPath = @"Z:\SWP1\ProjektMensSCRUM\splittedPdfs\";
-            string destinationPathAndName;
-            for (int idx = 0; idx < inputDocument.PageCount; idx++)
-            {
-                // Create new document
-                PdfDocument outputDocument = new PdfDocument();
-                outputDocument.Version = inputDocument.Version;
-                outputDocument.Info.Title =
-                  String.Format("Page {0} of {1}", idx + 1, inputDocument.Info.Title);
-                outputDocument.Info.Creator = inputDocument.Info.Creator;
+            
 
-                // Add the page and save it
-                outputDocument.AddPage(inputDocument.Pages[idx]);
-
-                destinationPathAndName=destinationPath + Guid.NewGuid()+".pdf";
-                while(File.Exists(destinationPathAndName))
-                {
-                    destinationPathAndName = destinationPath + Guid.NewGuid()+".pdf";
-                }
-                outputDocument.Save(destinationPathAndName);                
-            }
-
-            //string name = "formulars.pdf";
-            //string folder = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath);
-            //string path = Path.Combine(folder, name);
-            //fplPDF.SaveAs(path);
+        private string DecodeImage(string folder, string name)
+        {
+            IBarcodeReader reader = new BarcodeReader();
+            var barcodeBitmap = (Bitmap)Bitmap.FromFile(folder + name + @".png");
+            string result = reader.Decode(barcodeBitmap).ToString();
+            return result;
         }
 
         protected void btnToDataBase_Click(object sender, EventArgs e)
